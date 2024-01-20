@@ -1,7 +1,10 @@
 package com.studentapp.loggingrequestresponse;
 
 import com.studentapp.testbase.TestBase;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.given;
 
 /**
  * Created by Jay
@@ -12,6 +15,11 @@ public class LoggingRequestDetails extends TestBase {
      */
     @Test
     public void test001() {
+        Response response = given().log().headers()
+                .when()
+                .get("/list");
+        response.prettyPrint();
+        response.then().statusCode(200);
         System.out.println("---------------Printing Request Headers------------------");
     }
 

@@ -1,5 +1,6 @@
 package com.studentapp.studentinfo;
 
+import com.studentapp.constant.EndPoints;
 import com.studentapp.model.StudentPojo;
 import com.studentapp.testbase.TestBase;
 import com.studentapp.utils.TestUtils;
@@ -58,10 +59,10 @@ public class StudentCRUDTest extends TestBase {
         ValidatableResponse response =
          given()
                 .when()
-                .get("/list")
+                .get(EndPoints.GET_ALL_STUDENTS)
                 .then().statusCode(200);
         HashMap<String, Object> studentMap = response.extract()
-                .path(s1 + firstName + s2);
+                .path(s1+ firstName +s2);
         response.body(s1 + firstName + s2, hasValue(firstName));
         studentId = (int) studentMap.get("id");
     }

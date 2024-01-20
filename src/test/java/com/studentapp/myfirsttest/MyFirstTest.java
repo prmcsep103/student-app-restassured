@@ -1,6 +1,5 @@
 package com.studentapp.myfirsttest;
 
-import com.studentapp.testbase.TestBase;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -9,7 +8,7 @@ import static io.restassured.RestAssured.given;
 /**
  * Created by Jay Vaghani
  */
-public class MyFirstTest extends TestBase {
+public class MyFirstTest {
 
     @Test
     public void getAllStudentInfo() {
@@ -25,4 +24,5 @@ public class MyFirstTest extends TestBase {
         response.then().statusCode(200);
         response.prettyPrint();
     }
+
 }
